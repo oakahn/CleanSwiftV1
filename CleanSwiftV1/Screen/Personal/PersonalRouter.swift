@@ -1,17 +1,16 @@
 import UIKit
 
-@objc protocol HomeRoutingLogic {
+@objc protocol PersonalRoutingLogic {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
-  func routerToPagePersonalVC()
 }
 
-protocol HomeDataPassing {
-  var dataStore: HomeDataStore? { get }
+protocol PersonalDataPassing {
+  var dataStore: PersonalDataStore? { get }
 }
 
-class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
-  weak var viewController: HomeViewController?
-  var dataStore: HomeDataStore?
+class PersonalRouter: NSObject, PersonalRoutingLogic, PersonalDataPassing {
+  weak var viewController: PersonalViewController?
+  var dataStore: PersonalDataStore?
   
   // MARK: Routing
   
@@ -32,27 +31,15 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
 
   // MARK: Navigation
   
-  //func navigateToSomewhere(source: HomeViewController, destination: SomewhereViewController)
+  //func navigateToSomewhere(source: PersonalViewController, destination: SomewhereViewController)
   //{
   //  source.show(destination, sender: nil)
   //}
   
   // MARK: Passing data
   
-  //func passDataToSomewhere(source: HomeDataStore, destination: inout PersonalDataStore)
+  //func passDataToSomewhere(source: PersonalDataStore, destination: inout SomewhereDataStore)
   //{
   //  destination.name = source.name
   //}
-  
-  func routerToPagePersonalVC() {
-    
-  }
-  
-  func passDataToPersonal(source: HomeDataStore, destination: inout PersonalDataStore) {
-//    destination.name = source
-  }
-  
-  func navigateToPersonalVC(source: HomeViewController, destination: PersonalViewController) {
-    source.show(destination, sender: nil)
-  }
 }

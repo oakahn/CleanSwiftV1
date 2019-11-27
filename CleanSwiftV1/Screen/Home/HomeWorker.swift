@@ -10,6 +10,7 @@ class HomeWorker: HomeWorkerProtocol {
   
   func callBNKListService(page: Int, memId: Int,
                           completion: @escaping ([BNKListModel]?) -> Void) {
+    
     let url = "https://www.bnk48.com/model/listMembersClassdb/listMembersAjax.php"
     
     let parameters: Parameters = [

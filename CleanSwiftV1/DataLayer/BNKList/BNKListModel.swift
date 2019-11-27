@@ -6,6 +6,8 @@ class BNKListModel: Mappable {
   var imageLink: String?
   var memName: String?
   
+  init() { }
+  
   required init?(map: Map) { }
   
   func mapping(map: Map) {

@@ -101,8 +101,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
     guard let image = bnkList[indexPath.row].imageLink else { return UITableViewCell() }
     guard let url = URL(string: image) else { return UITableViewCell() }
+    guard let name = bnkList[indexPath.row].memName else { return UITableViewCell() }
     
     cell.bnkImage.downloadImage(from: url)
+    cell.bnkNameLabel.text = "\(name).bnk48official"
     
     return cell
   }

@@ -5,13 +5,13 @@ protocol HomeBusinessLogic {
 }
 
 protocol HomeDataStore {
-  //var name: String { get set }
+  var bnkList: BNKListModel { get set }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
   var presenter: HomePresentationLogic?
   var worker: HomeWorker?
-  //var name: String = ""
+  var bnkList: BNKListModel = BNKListModel()
   
   // MARK: Do something
   
@@ -20,6 +20,7 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     
     worker?.callBNKListService(page: request.page, memId: request.memId, completion: { (bnkList) in
       guard let bnkList = bnkList else { return }
+      
       let response = Home.GetBNKList.Response(bnkListModel: bnkList)
       self.presenter?.presentBNKList(response: response)
     })

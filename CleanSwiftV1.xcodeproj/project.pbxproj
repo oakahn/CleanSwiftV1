@@ -28,6 +28,12 @@
 		9C8AE058238E37C1003822F8 /* BNKListMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE056238E37C1003822F8 /* BNKListMainView.swift */; };
 		9C8AE05D238E3D61003822F8 /* BNKListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE05C238E3D61003822F8 /* BNKListModel.swift */; };
 		9C8AE060238E5690003822F8 /* ExtensionUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE05F238E5690003822F8 /* ExtensionUIImageView.swift */; };
+		9C8AE068238E5B2D003822F8 /* PersonalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE062238E5B2D003822F8 /* PersonalPresenter.swift */; };
+		9C8AE069238E5B2D003822F8 /* PersonalWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE063238E5B2D003822F8 /* PersonalWorker.swift */; };
+		9C8AE06A238E5B2D003822F8 /* PersonalRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE064238E5B2D003822F8 /* PersonalRouter.swift */; };
+		9C8AE06B238E5B2D003822F8 /* PersonalModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE065238E5B2D003822F8 /* PersonalModels.swift */; };
+		9C8AE06C238E5B2D003822F8 /* PersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE066238E5B2D003822F8 /* PersonalViewController.swift */; };
+		9C8AE06D238E5B2D003822F8 /* PersonalInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8AE067238E5B2D003822F8 /* PersonalInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +83,12 @@
 		9C8AE056238E37C1003822F8 /* BNKListMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BNKListMainView.swift; sourceTree = "<group>"; };
 		9C8AE05C238E3D61003822F8 /* BNKListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNKListModel.swift; sourceTree = "<group>"; };
 		9C8AE05F238E5690003822F8 /* ExtensionUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImageView.swift; sourceTree = "<group>"; };
+		9C8AE062238E5B2D003822F8 /* PersonalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPresenter.swift; sourceTree = "<group>"; };
+		9C8AE063238E5B2D003822F8 /* PersonalWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalWorker.swift; sourceTree = "<group>"; };
+		9C8AE064238E5B2D003822F8 /* PersonalRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRouter.swift; sourceTree = "<group>"; };
+		9C8AE065238E5B2D003822F8 /* PersonalModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalModels.swift; sourceTree = "<group>"; };
+		9C8AE066238E5B2D003822F8 /* PersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalViewController.swift; sourceTree = "<group>"; };
+		9C8AE067238E5B2D003822F8 /* PersonalInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInteractor.swift; sourceTree = "<group>"; };
 		A29338436AF62DDC98671340 /* Pods_CleanSwiftV1UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanSwiftV1UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADD875507EB5810AC9B61D3E /* Pods_CleanSwiftV1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleanSwiftV1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A59F087C2B837B89DF49D5 /* Pods-CleanSwiftV1Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CleanSwiftV1Tests.debug.xcconfig"; path = "Target Support Files/Pods-CleanSwiftV1Tests/Pods-CleanSwiftV1Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +197,7 @@
 		9C8AE046238E2A63003822F8 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				9C8AE061238E5B0D003822F8 /* Personal */,
 				9C8AE047238E2A68003822F8 /* Home */,
 			);
 			path = Screen;
@@ -242,6 +255,19 @@
 				9C8AE05F238E5690003822F8 /* ExtensionUIImageView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		9C8AE061238E5B0D003822F8 /* Personal */ = {
+			isa = PBXGroup;
+			children = (
+				9C8AE062238E5B2D003822F8 /* PersonalPresenter.swift */,
+				9C8AE063238E5B2D003822F8 /* PersonalWorker.swift */,
+				9C8AE064238E5B2D003822F8 /* PersonalRouter.swift */,
+				9C8AE065238E5B2D003822F8 /* PersonalModels.swift */,
+				9C8AE066238E5B2D003822F8 /* PersonalViewController.swift */,
+				9C8AE067238E5B2D003822F8 /* PersonalInteractor.swift */,
+			);
+			path = Personal;
 			sourceTree = "<group>";
 		};
 		DF295201363ED51B73773993 /* Frameworks */ = {
@@ -475,12 +501,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C8AE068238E5B2D003822F8 /* PersonalPresenter.swift in Sources */,
+				9C8AE06D238E5B2D003822F8 /* PersonalInteractor.swift in Sources */,
 				9C8AE01B238E2A59003822F8 /* ViewController.swift in Sources */,
 				9C8AE050238E2A78003822F8 /* HomeRouter.swift in Sources */,
 				9C8AE017238E2A59003822F8 /* AppDelegate.swift in Sources */,
+				9C8AE06C238E5B2D003822F8 /* PersonalViewController.swift in Sources */,
+				9C8AE06A238E5B2D003822F8 /* PersonalRouter.swift in Sources */,
+				9C8AE069238E5B2D003822F8 /* PersonalWorker.swift in Sources */,
 				9C8AE057238E37C1003822F8 /* BNKTableViewCell.swift in Sources */,
 				9C8AE052238E2A78003822F8 /* HomeViewController.swift in Sources */,
 				9C8AE019238E2A59003822F8 /* SceneDelegate.swift in Sources */,
+				9C8AE06B238E5B2D003822F8 /* PersonalModels.swift in Sources */,
 				9C8AE04F238E2A78003822F8 /* HomeWorker.swift in Sources */,
 				9C8AE058238E37C1003822F8 /* BNKListMainView.swift in Sources */,
 				9C8AE053238E2A78003822F8 /* HomeInteractor.swift in Sources */,
