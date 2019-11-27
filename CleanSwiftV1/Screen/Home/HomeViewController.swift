@@ -1,12 +1,15 @@
 import UIKit
 
 protocol HomeDisplayLogic: class {
-  func displaySomething(viewModel: Home.Something.ViewModel)
+  func displayBNKList(viewModel: Home.GetBNKList.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
+  
   var interactor: HomeBusinessLogic?
   var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+  
+  var bnkList: [BNKListModel] = []
 
   // MARK: Object lifecycle
   
@@ -46,23 +49,61 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     }
   }
   
+  let mainView = BNKListMainView()
   // MARK: View lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    doSomething()
+    setupMainView()
+  }
+  
+  private func setupMainView() {
+    mainView.setupMainView(view: view)
+    setupTable()
+    doGetBNKList()
+  }
+  
+  private func setupTable() {
+    mainView.tableBNKList.estimatedRowHeight = 300
+    mainView.tableBNKList.rowHeight = UITableView.automaticDimension
+    mainView.tableBNKList.register(BNKTableViewCell.self, forCellReuseIdentifier: "cell")
+    mainView.tableBNKList.dataSource = self
+    mainView.tableBNKList.delegate = self
+    mainView.tableBNKList.separatorStyle = .none
+    mainView.tableBNKList.showsVerticalScrollIndicator = false
   }
   
   // MARK: Do something
   
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething() {
-    let request = Home.Something.Request()
-    interactor?.doSomething(request: request)
+  func doGetBNKList() {
+    let request = Home.GetBNKList.Request(memId: 4, page: 0)
+    interactor?.callBNKListService(request: request)
   }
   
-  func displaySomething(viewModel: Home.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
+  func displayBNKList(viewModel: Home.GetBNKList.ViewModel) {
+    guard let bnkList = viewModel.bnkListModel else { return }
+    self.bnkList = bnkList
+    mainView.tableBNKList.reloadData()
+  }
+}
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return bnkList.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? BNKTableViewCell else {
+      return UITableViewCell()
+    }
+    
+    cell.selectionStyle = .none
+        
+    guard let image = bnkList[indexPath.row].imageLink else { return UITableViewCell() }
+    guard let url = URL(string: image) else { return UITableViewCell() }
+    
+    cell.bnkImage.downloadImage(from: url)
+    
+    return cell
   }
 }

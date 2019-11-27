@@ -1,7 +1,7 @@
 import UIKit
 
 protocol HomeBusinessLogic {
-  func doSomething(request: Home.Something.Request)
+  func callBNKListService(request: Home.GetBNKList.Request)
 }
 
 protocol HomeDataStore {
@@ -15,11 +15,13 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
   
   // MARK: Do something
   
-  func doSomething(request: Home.Something.Request) {
+  func callBNKListService(request: Home.GetBNKList.Request) {
     worker = HomeWorker()
-    worker?.doSomeWork()
     
-    let response = Home.Something.Response()
-    presenter?.presentSomething(response: response)
+    worker?.callBNKListService(page: request.page, memId: request.memId, completion: { (bnkList) in
+      guard let bnkList = bnkList else { return }
+      let response = Home.GetBNKList.Response(bnkListModel: bnkList)
+      self.presenter?.presentBNKList(response: response)
+    })
   }
 }
